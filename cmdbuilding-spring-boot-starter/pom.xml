@@ -8,7 +8,7 @@
         <version>2.1.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>cz</groupId>
+    <groupId>io.github.whyareyousoseriously</groupId>
     <artifactId>cmdbuliding-spring-boot-starter</artifactId>
     <version>0.0.1-RELEASE</version>
     <name>cmdbuilding-spring-boot-starter</name>
