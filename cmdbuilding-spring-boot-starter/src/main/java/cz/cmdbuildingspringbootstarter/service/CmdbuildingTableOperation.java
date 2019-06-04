@@ -37,7 +37,8 @@ public class CmdbuildingTableOperation {
      * @param tableName tableName 表名
      * @param cmdbFilter cmdbFilter 过滤
      * @param sessionId sessionId
-     * @return selectResult<T>
+     * @param tClass 类型
+     * @return selectResult 查找的结果
      */
     public <T> SelectResult<T> find(String tableName, CmdbFilter cmdbFilter, String sessionId, Class<T> tClass){
         String prefix = cmdbConfig.getApi(cmdbConfig.getIp(),cmdbConfig.getPort());
@@ -70,7 +71,8 @@ public class CmdbuildingTableOperation {
      * 查找指定表的所有数据
      * @param tableName tableName 表名
      * @param sessionId sessionId
-     * @return selectResult<T>
+     * @param tClass 类型
+     * @return selectResult 查找的结果
      */
     public <T> SelectResult<T> find(String tableName,String sessionId,Class<T> tClass){
         String prefix = cmdbConfig.getApi(cmdbConfig.getIp(),cmdbConfig.getPort());
@@ -85,7 +87,7 @@ public class CmdbuildingTableOperation {
      * @param tableName 表名
      * @param cmdbFilter cmdbFilter
      * @param sessionId sessionId
-     * @return
+     * @return integer 找到并删除的数量
      */
     public Integer findAndDelete(String tableName,CmdbFilter cmdbFilter,String sessionId){
         List<JSONObject> jsonObjects = this.find(tableName, cmdbFilter, sessionId, JSONObject.class).getData();
@@ -100,7 +102,7 @@ public class CmdbuildingTableOperation {
      * 清空指定表数据
      * @param tableName 表
      * @param sessionId sessionId
-     * @return
+     * @return integer 删除的数量
      */
     public Integer deleteAll(String tableName,String sessionId){
 
@@ -169,7 +171,7 @@ public class CmdbuildingTableOperation {
      * @param tableName tableName
      * @param sessionId sessionId
      * @param <T> t
-     * @return
+     * @return 更新的卡片的id
      */
     public <T> String updateByCardId(T t,String cardId,String tableName,String sessionId){
         return this.updateByCardIdO(JSONObject.toJSONString(t),cardId,tableName,sessionId);
@@ -181,7 +183,7 @@ public class CmdbuildingTableOperation {
      * @param cardId cardId
      * @param tableName tableName
      * @param sessionId sessionId
-     * @return str
+     * @return 更新的卡片的id
      */
     public String updateJsonByCardId(JSONObject jsonObject,String cardId,String tableName,String sessionId){
         return this.updateByCardIdO(jsonObject.toJSONString(),cardId,tableName,sessionId);
@@ -193,7 +195,7 @@ public class CmdbuildingTableOperation {
      * @param tableName 表名
      * @param sessionId sessionId
      * @param <T> t
-     * @return t
+     * @return 返回结果
      */
     public <T> InsertResult save(T t, String tableName, String sessionId){
         return this.saveO(JSONObject.toJSONString(t),tableName,sessionId);
@@ -205,7 +207,7 @@ public class CmdbuildingTableOperation {
      * @param dataJson 数据json
      * @param tableName 表
      * @param sessionId sessionId
-     * @return insertResult
+     * @return insertResult 返回结果
      */
     public InsertResult saveJson(JSONObject dataJson,String tableName,String sessionId){
         return this.saveO(dataJson.toJSONString(),tableName,sessionId);
@@ -216,7 +218,7 @@ public class CmdbuildingTableOperation {
      * @param dataString 数据string
      * @param tableName 表
      * @param sessionId sessionId
-     * @return insertResult
+     * @return insertResult 返回结果
      */
     private InsertResult saveO(String dataString,String tableName,String sessionId){
         String prefix = cmdbConfig.getApi(cmdbConfig.getIp(),cmdbConfig.getPort());
