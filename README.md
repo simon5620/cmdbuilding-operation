@@ -7,7 +7,7 @@
 - [中文文档](http://www.xuewuzhijing9981.top/cmdbuilding-springboot-starter
 
 ## Features
-- 1. 对cmdbuilding管理的class中的卡片进行CRUD操作。
+- 1、对cmdbuilding管理的class中的卡片进行CRUD操作。
 
 ## Communication
 - [社区交流](http://www.xuewuzhijing9981.top/cmdbuilding-springboot-starter/community.html)
