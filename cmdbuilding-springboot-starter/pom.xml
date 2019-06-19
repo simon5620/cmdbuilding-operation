@@ -12,7 +12,7 @@
     <artifactId>cmdbuilding-springboot-starter</artifactId>
     <version>0.0.1-RELEASE</version>
     <name>cmdbuilding-springboot-starter</name>
-    <description>Demo project for Spring Boot</description>
+    <description>CRUD of cmdbuilding2.x</description>
 
     <properties>
         <java.version>1.8</java.version>
