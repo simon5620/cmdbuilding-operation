@@ -10,7 +10,7 @@
     </parent>
     <groupId>io.github.whyareyousoseriously</groupId>
     <artifactId>cmdbuilding-springboot-starter</artifactId>
-    <version>0.0.1-RELEASE</version>
+    <version>0.0.3-RELEASE</version>
     <name>cmdbuilding-springboot-starter</name>
     <description>CRUD of cmdbuilding2.x</description>
 
@@ -125,7 +125,7 @@
                 </executions>
             </plugin>
             <!-- sonatype提供了自动release的插件，这意味着运行mvn clean deploy后不用手动去close-> release了，此插件会自动release我们的项目到Maven中央仓库。 -->
-            <!--<plugin>
+            <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>1.6.7</version>
@@ -135,7 +135,7 @@
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 

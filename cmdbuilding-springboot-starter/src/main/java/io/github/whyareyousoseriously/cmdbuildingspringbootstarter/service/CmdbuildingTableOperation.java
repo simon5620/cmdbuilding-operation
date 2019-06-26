@@ -19,6 +19,7 @@ import org.assertj.core.util.Lists;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -88,15 +89,16 @@ public class CmdbuildingTableOperation {
      * @param tableName 表名
      * @param cmdbFilter cmdbFilter
      * @param sessionId sessionId
-     * @return integer 找到并删除的数量
+     * @return list 找到并删除的cardId集合
      */
-    public Integer findAndDelete(String tableName,CmdbFilter cmdbFilter,String sessionId){
+    public List<String> findAndDelete(String tableName,CmdbFilter cmdbFilter,String sessionId){
+        List<String> cards = Lists.newArrayList();
         List<JSONObject> jsonObjects = this.find(tableName, cmdbFilter, sessionId, JSONObject.class).getData();
-        jsonObjects.parallelStream().forEach(jsonObject -> {
-            String cardId = jsonObject.getString("_id");
+        jsonObjects.forEach(jsonObject -> cards.add(jsonObject.getString("_id")));
+        cards.parallelStream().forEach(cardId -> {
             this.deleteByCardId(cardId,tableName,sessionId);
         });
-        return jsonObjects.size();
+        return cards;
     }
 
     /**
